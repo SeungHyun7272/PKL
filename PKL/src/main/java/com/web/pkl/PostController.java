@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+import java.time.LocalDateTime;
+
+@Controller // URL과 함수를 매핑
 public class PostController {
 
   @Autowired
@@ -17,10 +19,14 @@ public class PostController {
   @RequestMapping(value="/post", method = RequestMethod.POST)
   public String postNew(
       @RequestParam(value = "title")String title,
-      @RequestParam(value = "description")String description
+      @RequestParam(value = "description")String description,
+      @RequestParam(value = "user")String user,
+      @RequestParam(value = "create_at") LocalDateTime create_at
   ) {
-    Post post = new Post(title = title, description = description);
+    Post post = new Post(title = title, description = description, user = user, create_at = create_at);
     postRepository.save(post);
     return "redirect:/";
   }
+
+
 }

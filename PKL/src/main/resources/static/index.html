@@ -20,9 +20,30 @@
             <h2>Index Page</h2>
         </div>
     </div>
+
+    <div class="row" style="height: 100%">
+        <!-- Side Bar -->
+        <div class="col-md-2 "style="height: 100%; background-color: darkseagreen" >
+            <h3>Side Bar</h3>
+            <div style="padding:1rem; margin-top: 2rem">
+                <button id = "post-list-btn">리스트</button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="col-md-10">
+            <h2>Index Page</h2>
+        </div>
+    </div>
+
+
 <script>
     $('#post-create-btn').on('click', function(){
       window.location.href = '/create'
+    })
+</script>
+    <script>
+    $('#post-list-btn').on('click', function(){
+      window.location.href = '/list'
     })
 </script>
 </body>
